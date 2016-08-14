@@ -10,11 +10,13 @@ public class Student {
 	private int id;
 	private String name;
 	private int[] gradeList;
+	private double avarage;
 
 	public Student(int id, String name) {
 		this.id = id;
 		this.name = name;
-		gradeList = new int[QTDOFGRADE];
+		this.gradeList = new int[QTDOFGRADE];
+		this.avarage = 0;
 	}
 
 	public String getName() {
@@ -29,7 +31,7 @@ public class Student {
 		return gradeList;
 	}
 
-	public boolean infoGrade(int number, int grade) {
+	public boolean inputGrade(int number, int grade) {
 		if (grade < 0 || grade > 10) {
 			return false;
 		} else {
@@ -39,6 +41,26 @@ public class Student {
 		}
 		gradeList[number] = grade;
 		return true;
+	}
+
+	/**
+	 * Seguindo o critério de completude, foi criado o método calculateAverage nesta classe,
+	 * pois a média pertence ao objeto Student
+     */
+	public void calculateAverage() {
+		int grade = 0;
+		for (int i = 0; i < QTDOFGRADE; i++) {
+			grade += gradeList[i];
+		}
+		this.avarage =  grade / gradeList.length;
+	}
+
+	/**
+	 * Retorna a média do aluno calculada pelo método @calculateAverage
+	 * @return Double
+     */
+	public double getAverage() {
+		return this.avarage;
 	}
 
 	@Override

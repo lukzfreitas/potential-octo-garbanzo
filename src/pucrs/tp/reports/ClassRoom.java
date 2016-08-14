@@ -6,11 +6,11 @@ import java.util.ArrayList;
  *
  * @author bernardo
  */
-public class Class implements Report {
+public class ClassRoom implements Report {
 	private ArrayList<Student> studentsList;
 	private int cursor;
 
-	public Class() {
+	public ClassRoom() {
 		studentsList = new ArrayList<>();
 		cursor = 0;
 	}
@@ -38,22 +38,21 @@ public class Class implements Report {
 		return false;
 	}
 
-	public double calculateAverage(int id) {
-		Student student = getStudent(id);
-		if (student != null) {
-			int[] grades = student.getGradeList();
-			double sum = 0.0;
-			for (int i = 0; i < grades.length; i++) {
-				sum += grades[i];
-			}
-			return sum / grades.length;
+	/**
+	 * Calcula a média geral dos alunos cadastrados em uma turma
+	 * @return
+     */
+	public double calculateAverage() {
+		double sum = 0;
+		for (int i = 0; i < studentsList.size(); i++) {
+			sum += studentsList.get(i).getAverage();
 		}
-		return -1.0;
+		return sum / studentsList.size();
 	}
 
 	@Override
 	public String getHeader() {
-		return null;
+		return "Id : Name          : Grades";
 	}
 
 	@Override
@@ -74,6 +73,6 @@ public class Class implements Report {
 
 	@Override
 	public String getFooter() {
-		return null;
+		return "Total students in the class room: " + studentsList.size();
 	}
 }
