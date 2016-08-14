@@ -3,25 +3,20 @@ package pucrs.tp.employee;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Employee {
+public class Employee extends Person{
 	private int id;
-	private String name;
 	public double salaryBase;
 	private List<Dependent> dependentList;
 
 	public Employee(int id, String name, double salaryBase) {
+		super(name);
 		this.id = id;
-		this.name = name;
 		this.salaryBase = salaryBase;
 		this.dependentList = new ArrayList<Dependent>();
 	}
 
 	public int getId() {
 		return (this.id);
-	}
-
-	public String getName() {
-		return (this.name);
 	}
 
 	public double getSalaryBase() {

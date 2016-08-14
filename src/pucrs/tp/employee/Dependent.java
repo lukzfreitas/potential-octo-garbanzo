@@ -1,24 +1,14 @@
 package pucrs.tp.employee;
 
-public class Dependent {
-	private String name;
+public class Dependent extends Person{
 	private Date dateBirth;
 
 	public Dependent(String name, Date dateBirth) throws IllegalArgumentException {
-		if (name == null)
-			throw new IllegalArgumentException("Name undefined");
+		super(name);
 		if (dateBirth == null)
 			throw new IllegalArgumentException("Date undefined");
-		this.name = name;
+
 		this.dateBirth = dateBirth;
-	}
-
-	public String getName() {
-		return this.name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public Date getDateBirth() {
@@ -30,6 +20,6 @@ public class Dependent {
 	}
 
 	public String toString() {
-		return (this.name + ", " + this.dateBirth.toString());
+		return (this.getName() + ", " + this.dateBirth.toString());
 	}
 }
