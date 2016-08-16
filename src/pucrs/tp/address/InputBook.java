@@ -18,7 +18,7 @@ public class InputBook {
 		addressList.add(e);
 	}
 
-	public String get() {
+	public String getName() {
 		return (name);
 	}
 

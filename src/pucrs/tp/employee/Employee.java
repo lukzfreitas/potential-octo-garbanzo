@@ -51,7 +51,7 @@ public class Employee extends Person{
 	}
 
 	public boolean dependentIsOfAge(Dependent d, int currentYear) {
-		if (d.age(currentYear) >= 18)
+		if (d.getAge() >= 18)
 			return (true);
 		else
 			return (false);

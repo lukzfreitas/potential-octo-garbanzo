@@ -1,8 +1,6 @@
 package pucrs.tp.employee;
 
-
 import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 public class Dependent extends Person{
 	private Date dateBirth;
